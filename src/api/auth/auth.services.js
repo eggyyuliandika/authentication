@@ -13,11 +13,21 @@ function addRefreshTokenToWhitelist({ jti, refreshToken, userId }) {
   });
 }
 
+// this function used to check if the token sent by the client is in the database.
+function findRefreshTokenById(id) {
+  return db.refreshToken.findUnique({
+    where: {
+      id,
+    },
+  });
+}
+
+
 
 
 module.exports = {
   addRefreshTokenToWhitelist,
-  // findRefreshTokenById,
+  findRefreshTokenById,
   // deleteRefreshToken,
   // revokeTokens,
 };
