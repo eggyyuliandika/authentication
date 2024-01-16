@@ -19,4 +19,18 @@ function createUserByEmailAndPassword(user) {
   });
 }
 
+// function to find user by id using (where)
+function findUserById(id) {
+  return db.user.findUnique({
+    where: {
+      id,
+    },
+  });
+}
+
+module.exports = {
+  findUserByEmail,
+  findUserById,
+  createUserByEmailAndPassword,
+};
 
