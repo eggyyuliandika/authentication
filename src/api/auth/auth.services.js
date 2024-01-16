@@ -34,13 +34,21 @@ function deleteRefreshToken(id) {
   });
 }
 
-
-
-
+// this function used to be revoke tokens
+function revokeTokens(userId) {
+  return db.refreshToken.updateMany({
+    where: {
+      userId,
+    },
+    data: {
+      revoked: true,
+    },
+  });
+}
 
 module.exports = {
   addRefreshTokenToWhitelist,
   findRefreshTokenById,
- deleteRefreshToken,
-  // revokeTokens,
+  deleteRefreshToken,
+  revokeTokens,
 };
