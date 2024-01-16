@@ -1,54 +1,35 @@
-# Express API Starter
+Description Project: 
+This project implements JWT authentication with refresh tokens and access tokens using Prisma and Express.
 
-How to use this template:
 
-```sh
-npx create-express-api --directory my-api-name
-```
+## Installation
+Follow these steps to clone and run the auth-server project:
 
-Includes API Server utilities:
+- First, Open Git Bash or a terminal and run the following command to clone the project:
+  git@github.com:eggyyuliandika/authentication.git
 
-* [morgan](https://www.npmjs.com/package/morgan)
-  * HTTP request logger middleware for node.js
-* [helmet](https://www.npmjs.com/package/helmet)
-  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
-* [dotenv](https://www.npmjs.com/package/dotenv)
-  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
-* [cors](https://www.npmjs.com/package/cors)
-  * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+- Second, when the cloning process is done, move to the project directory by running the following command:
+  cd auth-server
 
-Development utilities:
+- Install project dependencies using npm:
+  npm install
 
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [jest](https://www.npmjs.com/package/jest)
-  * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
 
-## Setup
+## Run the project
+- First, run the following command to start the server:
+  npm run dev 
 
-```
-npm install
-```
+- Second, access the API development tools (such as Postman) at:
+  http://localhost:5000
 
-## Lint
 
-```
-npm run lint
-```
+## Send Request 
+- POST Request to Register User, and don't forget to provide email and password in the request body.
+  http://localhost:5000/api/v1/auth/register
 
-## Test
+- POST Request to Login User, and don't forget to provide the email and password that have been registered in the request body.
+  http://localhost:5000/api/v1/auth/login 
 
-```
-npm test
-```
-
-## Development
-
-```
-npm run dev
-```
-# authentication
+- Get request to get user profile, and don't forget to add an Authorization header with the access token (ACCESS TOKEN EXPIRED IN 5 MINUTES) 
+  obtained from the /login endpoint. The format should be "Bearer token."
+  http://localhost:5000/api/v1/users/profile
