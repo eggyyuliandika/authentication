@@ -22,12 +22,25 @@ function findRefreshTokenById(id) {
   });
 }
 
+// this function used to be soft delete tokens after usage.
+function deleteRefreshToken(id) {
+  return db.refreshToken.update({
+    where: {
+      id,
+    },
+    data: {
+      revoked: true,
+    },
+  });
+}
+
+
 
 
 
 module.exports = {
   addRefreshTokenToWhitelist,
   findRefreshTokenById,
-  // deleteRefreshToken,
+ deleteRefreshToken,
   // revokeTokens,
 };
